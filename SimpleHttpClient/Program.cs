@@ -19,12 +19,12 @@ namespace SimpleHttpClient
         {
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://localhost:6740");
+                client.BaseAddress = new Uri("http://192.168.3.63:5200");
                 var content = new FormUrlEncodedContent(new[]
                 {
                 new KeyValuePair<string, string>("", "login")
             });
-                var result = await client.PostAsync("/api/Membership/exists", content);
+                var result = await client.PostAsync("/Test/", content);
                 string resultContent = await result.Content.ReadAsStringAsync();
                 Console.WriteLine(resultContent);
             }
